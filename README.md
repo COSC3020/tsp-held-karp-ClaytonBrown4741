@@ -46,4 +46,14 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
-reasoning, to this markdown file.
+reasoning, to this markdown file.  
+
+**NOTE**:  
+I have submitted code that seems to work just fine with all the test cases. I plan  
+to do the runtime analysis at a future date.  
+Also please note that I used the following code for reference in order to help me  
+understand how to iterate over all the paths in the list of cities:  
+https://github.com/COSC3020/tsp-held-karp-CadeMaynard/tree/main  
+In addition to this, I also used the slides provided in class in order to see how  
+memoization could best be done in this scenario.
+
