@@ -58,13 +58,14 @@ memoization could best be done in this scenario.
 **ANSWER**:  
 The worst case time complexity of this problem will depend almost entirely on the amount of nodes  
 that are included at the very beginning. This is because the code must go through every possible  
-combination of nodes in order to ensure that it's getting the best possible answer. So, without the  
-use of dynamic programming, this would end up being about $|V|^{|V|}$ amount of time. However, with  
-the use of memoization, we no longer have to account for repeat values. This drops the runtime down  
-to about $\Theta(|V|!)$, which would be the worst case where a large amount of the combinations have  
-no repeated values.  
-As for the memory complexity, I believe it would be the same case of the above example of $\Theta(|V|!)$.  
-This is because, as stated above, that worst case occurs when there's a minimum amount of memoization.  
-As a result, the memory will have to save a lot more values than normal which will cause it to bloat to  
-the size shown above.
+combination of nodes in order to ensure that it's getting the best possible answer. Luckily, I've  
+already found the runtime analysis for such a scenario in the "Brute Force Sorting" algorithm that  
+I've done before. From that, I know that the worst case time complexity for trying out all possible  
+unique permutations of a set would be $\Theta(|V|!)$, so that would be our answer.
+As for the memory complexity, I believe it would be the same case as the runtime complexity. So in  
+other words, the memory complexity would be $\Theta(|V|!)$ as well.  
+This is because the cache will have to store *every* unique permutation of the nodes so that they  
+can (hopefully) be referenced by the computer later to save time. As shown above |V|! is the amount  
+of different permutations that we might be able to expect in the worst case scenario. So that would  
+be our answer in this case.
 
