@@ -54,18 +54,22 @@ understand how to iterate over all the paths in the list of cities:
 https://github.com/COSC3020/tsp-held-karp-CadeMaynard/tree/main  
 In addition to this, I also used the slides provided in class in order to see how  
 memoization could best be done in this scenario.  
-
+Inspiration on how to properly optimize my code came from this link:  
+https://github.com/COSC3020/tsp-held-karp-rzafft1/tree/main  
+  
 **ANSWER**:  
-The worst case time complexity of this problem will depend almost entirely on the amount of nodes  
-that are included at the very beginning. This is because the code must go through every possible  
-combination of nodes in order to ensure that it's getting the best possible answer. Luckily, I've  
-already found the runtime analysis for such a scenario in the "Brute Force Sorting" algorithm that  
-I've done before. From that, I know that the worst case time complexity for trying out all possible  
-unique permutations of a set would be $\Theta(|V|!)$, so that would be our answer.
-As for the memory complexity, I believe it would be the same case as the runtime complexity. So in  
-other words, the memory complexity would be $\Theta(|V|!)$ as well.  
-This is because the cache will have to store *every* unique permutation of the nodes so that they  
-can (hopefully) be referenced by the computer later to save time. As shown above |V|! is the amount  
-of different permutations that we might be able to expect in the worst case scenario. So that would  
-be our answer in this case.
+The worst case time complexity of this problem will depend almost entirely  
+on how well the caching works. This is because normally trying all permutations  
+of a list would take $n!$ amount of time, but the cache that we've implemented  
+allows us to bypass some of these values and save a lot of time. In fact, when not  
+accounting for unnecessary calculations, this can ultimately mean that our code will  
+only have to run $2^n$ amount of times as opposed to the usual runtime of $n!$. However,  
+for every unique permutation we encounter we will run a filter on it in order to get  
+rid of the city we were most recently focusing on, which will ultimately take n amount  
+of time. As a result, we get a final worst case runtime of $O(2^n*n)$  
+As for the memory complexity, it will be largely the same. This is because the cache will  
+only have to hold any unique permuations that we encounter, and because that number is $2^n$  
+as stated above, the final memory complexity will be $O(2^n)$. It is worth noting that we  
+*do* use more bits of memory (such as creating temporary arrays and such) but because this  
+asymptotically insignificant compared to a $2^n$, they have been gotten rid of in this case.
 
