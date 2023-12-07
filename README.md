@@ -56,6 +56,15 @@ In addition to this, I also used the slides provided in class in order to see ho
 memoization could best be done in this scenario.  
 Inspiration on how to properly optimize my code came from this link:  
 https://github.com/COSC3020/tsp-held-karp-rzafft1/tree/main  
+
+**QUESTION:**:  
+In the comments for my most recent push of this assignment, you said, "What do you need to  
+do for each of those subset-start city combinations?" I was a little confused about what  
+you meant by this, so I thought I'd ask in order to avoid potentially doing unnecessary  
+work. Did you mean that my Runtime Analysis was off because I forgot to account for a  
+particular factor, or is my Runtime Analysis correct but you'd just like me to explain  
+in more detail how I came to that conclusion? Any clarification you could give me on  
+this issue would be greatly appreciated.  
   
 **ANSWER**:  
 The worst case time complexity of this problem will depend almost entirely  
