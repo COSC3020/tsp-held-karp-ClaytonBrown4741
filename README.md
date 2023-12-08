@@ -56,29 +56,24 @@ In addition to this, I also used the slides provided in class in order to see ho
 memoization could best be done in this scenario.  
 Inspiration on how to properly optimize my code came from this link:  
 https://github.com/COSC3020/tsp-held-karp-rzafft1/tree/main  
-
-**QUESTION:**:  
-In the comments for my most recent push of this assignment, you said, "What do you need to  
-do for each of those subset-start city combinations?" I was a little confused about what  
-you meant by this, so I thought I'd ask in order to avoid potentially doing unnecessary  
-work. Did you mean that my Runtime Analysis was off because I forgot to account for a  
-particular factor, or is my Runtime Analysis correct but you'd just like me to explain  
-in more detail how I came to that conclusion? Any clarification you could give me on  
-this issue would be greatly appreciated.  
   
 **ANSWER**:  
 The worst case time complexity of this problem will depend almost entirely  
 on how well the caching works. This is because normally trying all permutations  
 of a list would take $n!$ amount of time, but the cache that we've implemented  
-allows us to bypass some of these values and save a lot of time. In fact, when not  
-accounting for unnecessary calculations, this can ultimately mean that our code will  
-only have to run $2^n$ amount of times as opposed to the usual runtime of $n!$. However,  
-for every unique permutation we encounter we will run a filter on it in order to get  
-rid of the city we were most recently focusing on, which will ultimately take n amount  
-of time. As a result, we get a final worst case runtime of $O(2^n*n)$  
+allows us to bypass some of these values and lower the amount of combinations  
+we'd have to try to $2^n$. This is due to the fact that from now on, we will  
+only have to account for all *subsets* of the cities thanks to the implementation  
+of memoization allowing us to automatically know what the shortest path is once given  
+a specific subset of cities that it's already encountered. The code will need to go  
+through and rememoize everything no more than n amount of times in order to account  
+for all possible start cities, which brings our current runtime to $O(n * 2^n)$. However,  
+the preparing of the new path will also take n amount of time and must be repeated for  
+every unique subset/start city combo we come across. So therefore, in the  
+end, the final runtime complexity will be $O(2^n * n^2)$.  
 As for the memory complexity, it will be largely the same. This is because the cache will  
-only have to hold any unique permuations that we encounter, and because that number is $2^n$  
-as stated above, the final memory complexity will be $O(2^n)$. It is worth noting that we  
-*do* use more bits of memory (such as creating temporary arrays and such) but because this  
-asymptotically insignificant compared to a $2^n$, they have been gotten rid of in this case.
+only have to hold any unique permuations that we encounter. However, due to the way we  
+decided to cache our results, the start city must *also* be taken into account. Therefore,  
+it will ultimately end up being $O(2^n * n)$ because we have to count not only the unique  
+permutations, but the starting city that belongs to that permutation as well.
 
