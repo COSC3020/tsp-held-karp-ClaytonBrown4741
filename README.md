@@ -68,7 +68,7 @@ of memoization allowing us to automatically know what the shortest path is once 
 a specific subset of cities that it's already encountered. The code will need to go  
 through and rememoize everything no more than n amount of times in order to account  
 for all possible start cities, which brings our current runtime to $O(n * 2^n)$. However,  
-the preparing of the new path will also take n amount of time and must be repeated for  
+the preparing of the newCities variable will also take n amount of time and must be repeated for  
 every unique subset/start city combo we come across. So therefore, in the  
 end, the final runtime complexity will be $O(2^n * n^2)$.  
 As for the memory complexity, it will be largely the same. This is because the cache will  
